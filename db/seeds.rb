@@ -24,3 +24,9 @@ Subject.create(name: 'HTML', description: "HTML is short for HyperText Markup La
 Subject.create(name: 'CSS', description: 'CSS stands for "Cascading Style Sheet." Cascading style sheets are used to format the layout of Web pages. They can be used to define text styles, table sizes, and other aspects of Web pages that previously could only be defined in a page\'s HTML.')
 
 User.create(username: "TestUser", password: "123456", password_confirmation: "123456", first_name: "John", last_name: "Smith", email: "John.Smith@gmail.com")
+
+Tutorial.create(name: 'Try Ruby', description: '15-minute guided introduction to common Ruby methods', url: 'http://tryruby.org/', cost: 0.0, difficulty: 'beginner', format: 'interactive', company: 'Code School')
+Tutorial.create(name: 'Ruby in 100 Minutes', description: 'Overview of Ruby that will probably take you more than 100 minutes to complete', url: 'http://tutorials.jumpstartlab.com/projects/ruby_in_100_minutes.html', cost: 0.0, difficulty: 'beginner', format: 'article', company: 'Jumpstart Labs')
+
+TutorialSubject.create(tutorial_id: 1, subject_id: 1)
+TutorialSubject.create(tutorial_id: 2, subject_id: 1)
