@@ -9,5 +9,8 @@
     <div><%= tutorial.difficulty%></div></br>
     <div><%= tutorial.format %></div></br>
     <div><%= tutorial.company %></div></br>
+    <div><%= link_to 'view', tutorial_path(tutorial) %></div>
+    <div><%= link_to 'edit', edit_tutorial_path(tutorial) %></div>
+    <div><%= link_to 'delete', tutorial_path(tutorial), method: :delete, data: {confirm: 'You sure?'} %></div>
     <hr>
 <% end %>

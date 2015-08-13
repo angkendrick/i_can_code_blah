@@ -1,0 +1,48 @@
+<% if @tutorial.errors.any? %>
+    <div>
+      <%= pluralize(@tutorial.errors.count, 'error') %>
+      <ul>
+        <% @tutorial.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<%= form_for @tutorial do |f| %>
+    <div>
+      <%= f.label 'name' %>
+      <%= f.text_field 'name' %>
+    </div>
+    <div>
+      <%= f.label 'description' %>
+      <%= f.text_area 'description' %>
+    </div>
+    <div>
+      <%= f.label 'url' %>
+      <%= f.text_field 'url' %>
+    </div>
+    <div>
+      <%= f.label 'image' %>
+      <%= f.text_field 'image' %>
+    </div>
+    <div>
+      <%= f.label 'cost' %>
+      <%= f.text_field 'cost' %>
+    </div>
+    <div>
+      <%= f.label 'difficulty' %>
+      <%= f.select :difficulty, options_for_select([["Beginner", "Beginner"],["Intermediate", "Intermediate"],["Advanced", "Advanced"]]) %>
+    </div>
+    <div>
+      <%= f.label 'format' %>
+      <%= f.select :format, options_for_select([["Video", "Video"],["Interactive", "Interactive"],["Article", "Article"]]) %>
+    </div>
+    <div>
+      <%= f.label 'company' %>
+      <%= f.text_field 'company' %>
+    </div>
+    <div>
+      <%= f.submit 'Submit' %>
+    </div>
+<% end %>
