@@ -23,3 +23,4 @@ Subject.create(name: 'Swift', description: "Swift is a multi-paradigm, compiled 
 Subject.create(name: 'HTML', description: "HTML is short for HyperText Markup Language, the authoring language used to create documents on the World Wide Web. HTML is similar to SGML, although it is not a strict subset. HTML defines the structure and layout of a Web document by using a variety of tags and attributes.")
 Subject.create(name: 'CSS', description: 'CSS stands for "Cascading Style Sheet." Cascading style sheets are used to format the layout of Web pages. They can be used to define text styles, table sizes, and other aspects of Web pages that previously could only be defined in a page\'s HTML.')
 
+User.create(username: "TestUser", password: "123456", password_confirmation: "123456", first_name: "John", last_name: "Smith", email: "John.Smith@gmail.com")
