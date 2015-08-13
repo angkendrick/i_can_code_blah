@@ -6,6 +6,7 @@ class TutorialsController < ApplicationController
 
   def create
     @tutorial = Tutorial.new(secure_params) #TODO: get user_id from user session
+    @tutorial.user_id = current_user.id
 
     if @tutorial.save
       redirect_to tutorials_path, notice: "Tutorial, #{@tutorial.name} submitted"
