@@ -1,0 +1,43 @@
+<h1>Edit your account details</h1>
+<%= form_for @user, :url => user_path do |f| %>
+  <% if @user.errors.any? %>
+    <div>
+      <%= pluralize(@user.errors.count, "error") %> prevented the account from being created:
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= f.label "username" %><br>
+    <%= f.text_field "username" %>
+  </div>
+  <div>
+    <%= f.label "email" %><br>
+    <%= f.text_field "email" %>
+  </div>
+  <div>
+    <%= f.label "first_name", "First Name" %><br>
+    <%= f.text_field "first_name" %>
+  </div>
+  <div>
+    <%= f.label "last_name", "Last Name" %><br>
+    <%= f.text_field "last_name" %>
+  </div>
+  <div>
+    <%= f.label "password", "New Password" %><br>
+    <%= f.password_field "password" %>
+  </div>
+  <div>
+    <%= f.label "password_confirmation", "New Password Confirmation" %><br>
+    <%= f.password_field "password_confirmation" %>
+  </div>
+  <div class="avatar">
+    <%= image_tag(@user.avatar.url.to_s) %>
+    <%= f.label "avatar" %><br>
+    <%= f.file_field "avatar" %>
+  </div>
+  <div><%= f.submit "Submit" %></div>
+<% end %>

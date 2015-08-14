@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id # auto log in
-      redirect_to tutorials_path, notice: "Welcome aboard, #{@user.first_name}!"
+      redirect_to tutorials_path
     else
       render :new
     end
@@ -21,6 +21,15 @@ class UsersController < ApplicationController
 
   def edit 
     @user = User.find(current_user.id)
+  end
+
+  def update
+    @user = User.find(current_user.id)
+    if @user.update_attributes(user_params)
+      redirect_to user_path(@user)
+    else
+      render :edit
+    end
   end
 
   protected
