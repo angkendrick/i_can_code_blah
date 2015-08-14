@@ -1,5 +1,7 @@
 class TutorialsController < ApplicationController
 
+  include TutorialsHelper
+
   def index
     @tutorials = Tutorial.all
   end
@@ -46,6 +48,11 @@ class TutorialsController < ApplicationController
     else
       render :index
     end
+  end
+
+  def search
+    @tutorials = search_all(params['search_string'])
+    render :index
   end
 
   protected
