@@ -27,6 +27,8 @@ User.create(username: "TestUser", password: "123456", password_confirmation: "12
 
 Tutorial.create(name: 'Try Ruby', description: '15-minute guided introduction to common Ruby methods', url: 'http://tryruby.org/', cost: 0.0, difficulty: 'beginner', format: 'interactive', company: 'Code School')
 Tutorial.create(name: 'Ruby in 100 Minutes', description: 'Overview of Ruby that will probably take you more than 100 minutes to complete', url: 'http://tutorials.jumpstartlab.com/projects/ruby_in_100_minutes.html', cost: 0.0, difficulty: 'beginner', format: 'article', company: 'Jumpstart Labs')
+Tutorial.create(name: 'Language Skills: Javascript', description: 'Learn the fundamentals of JavaScript, the programming language of the Web.', url: 'https://www.codecademy.com/tracks/javascript', cost: 0.0, difficulty: 'beginner', format: 'interactive', company: 'Codecademy')
 
 TutorialSubject.create(tutorial_id: 1, subject_id: 1)
 TutorialSubject.create(tutorial_id: 2, subject_id: 1)
+TutorialSubject.create(tutorial_id: 3, subject_id: 3)

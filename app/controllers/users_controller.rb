@@ -16,13 +16,17 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
+  end
+
+  def edit 
+    @user = User.find(current_user.id)
   end
 
   protected
 
   def user_params
-    params.require(:user).permit(:username, :email, :first_name, :last_name, :password, :password_confirmation)
+    params.require(:user).permit(:username, :email, :first_name, :last_name, :password, :password_confirmation, :avatar)
   end
 
 end
