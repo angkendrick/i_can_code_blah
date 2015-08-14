@@ -1,0 +1,20 @@
+<h1>Search/Index</h1>
+
+<%= form_tag url_for(:controller => 'search'), method: :get do %>
+    <div>
+      <%= text_field_tag 'search_string' %><%= submit_tag 'Search' %>
+    </div>
+<% end %>
+
+
+<% @tutorials && @tutorials.each do |tutorial|  %>
+    <div><%= tutorial.name %></div></br>
+    <div><%= tutorial.description %></div></br>
+    <div><a href="<%= tutorial.url %>"><%= tutorial.url %></a></div></br>
+    <div><img src="<%= tutorial.image %>"></div></br>
+    <div><%= tutorial.cost %></div></br>
+    <div><%= tutorial.difficulty %></div></br>
+    <div><%= tutorial.format %></div></br>
+    <div><%= tutorial.company %></div></br>
+    <hr>
+<% end %>

@@ -42,6 +42,12 @@
       <%= f.label 'company' %>
       <%= f.text_field 'company' %>
     </div>
+    <%= fields_for :tutorial_subjects do |tutorial_subjects_fields| %>
+        <div>
+          <%= tutorial_subjects_fields.label 'subject_id' %>
+          <%= tutorial_subjects_fields.select(:subject_id, Subject.all.collect {|s| [s.name, s.id]}) %>
+        </div>
+    <% end %>
     <div>
       <%= f.submit 'Submit' %>
     </div>

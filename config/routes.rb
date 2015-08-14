@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :subjects
   resource :session, only: [:new, :create, :destroy]
 
-  get 'search', to: 'tutorials#search'
+  resources :search, only: [:index]
+  #get 'search', to: 'search#search'
 
   root to: 'tutorials#index'
   # The priority is based upon order of creation: first created -> highest priority.
