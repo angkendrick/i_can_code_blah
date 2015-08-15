@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
   <% if @tutorial %>
       <meta property="og:title" content= "<%= @tutorial.name %>"/>
-      <meta property="og:url" content= "<%= request.env['PATH_INFO'] %>" />
+      <meta property="og:url" content= "https://frozen-lake-4419.herokuapp.com<%= request.env['PATH_INFO'] %>" />
       <meta property="og:description" content= "<%= @tutorial.description %>"/>
   <% end %>
 </head>
