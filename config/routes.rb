@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
   resources :search, only: [:index]
-  resources :likes
+  resources :likes, only: [:index, :create, :destroy]
 
   root to: 'tutorials#index'
   # The priority is based upon order of creation: first created -> highest priority.

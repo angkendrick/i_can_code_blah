@@ -1,1 +1,22 @@
 <h1>Likes/Index</h1>
+
+<%= @likes.each do |like| %>
+    <% @tutorial = tutorial(like.tutorial_id)%>
+
+    <div><%= @tutorial.name %></div></br>
+    <div><%= @tutorial.description %></div></br>
+    <div><a href="<%= @tutorial.url %>"><%= @tutorial.url %></a></div></br>
+    <div><img src="<%= @tutorial.image %>"></div></br>
+    <div><%= @tutorial.cost %></div></br>
+    <div><%= @tutorial.difficulty%></div></br>
+    <div><%= @tutorial.format %></div></br>
+    <div><%= @tutorial.company %></div></br>
+    <% if liked(@tutorial.id, current_user.id).nil? %>
+        <div><%= button_to 'like', likes_path(like: {tutorial_id: @tutorial.id, user_id: current_user.id})%></div>
+    <% else %>
+        <div><%= button_to 'unlike', {:controller => :likes, :action => 'destroy', :id => liked(@tutorial.id, current_user.id)}, :method => :delete%></div>
+    <% end %>
+    <div><%= link_to 'view', tutorial_path(@tutorial) %></div>
+    <hr>
+
+<% end %>
