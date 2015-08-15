@@ -9,8 +9,14 @@
     <div><%= tutorial.difficulty%></div></br>
     <div><%= tutorial.format %></div></br>
     <div><%= tutorial.company %></div></br>
+    <% if liked(tutorial.id, current_user.id).nil? %>
+        <div><%= button_to 'like', likes_path(like: {tutorial_id: tutorial.id, user_id: current_user.id})%></div>
+    <% else %>
+        <div><%= button_to 'unlike', {:controller => :likes, :action => 'destroy', :id => liked(tutorial.id, current_user.id)}, :method => :delete%></div>
+    <% end %>
     <div><%= link_to 'view', tutorial_path(tutorial) %></div>
     <div><%= link_to 'edit', edit_tutorial_path(tutorial) %></div>
     <div><%= link_to 'delete', tutorial_path(tutorial), method: :delete, data: {confirm: 'You sure?'} %></div>
     <hr>
 <% end %>
+
