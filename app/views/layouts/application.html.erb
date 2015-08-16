@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ICanCodeBlah</title>
+  <title>Coding Tutorials</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -12,8 +12,33 @@
   <% end %>
 </head>
 <body>
-
+<div id="wrapper">
+    <!-- Sidebar -->
+  <div id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+          <li class="sidebar-brand">
+              <a href="#">
+                  Coding Tutorials
+              </a>
+          </li>
+          <li>
+              <a href="#">All Tutorials</a>
+          </li>
+          <li>
+              <a href="#">Search Tutorials</a>
+          </li>
+          <li>
+              <a href="#">My Profile</a>
+          </li>
+          <li>
+              <a href="#">To-Do:</a>
+          </li>
+      </ul>
+  </div>
+  <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+  <!-- /#sidebar-wrapper -->
 <%= yield %>
-</body>
 <%= render 'layouts/footer' %>
+</div>
+</body>
 </html>
