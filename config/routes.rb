@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :subjects
   resource :session, only: [:new, :create, :destroy]
 
-  resources :search, only: [:index]
+  resource :search, only: [:index]
   resources :likes, only: [:index, :create, :destroy]
 
   root to: 'tutorials#index'

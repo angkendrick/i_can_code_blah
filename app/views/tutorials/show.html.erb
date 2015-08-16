@@ -2,7 +2,7 @@
 <div><%= @tutorial.name %></div></br>
 <div><%= @tutorial.description %></div></br>
 <div><a href="<%= @tutorial.url %>"><%= @tutorial.url %></a></div></br>
-<div><img src="<%= @tutorial.image %>"></div></br>
+<div><%= image_tag(@tutorial.tutorialimage.url.to_s, size: "100x100") %></div></br>
 <div><%= @tutorial.cost %></div></br>
 <div><%= @tutorial.difficulty%></div></br>
 <div><%= @tutorial.format %></div></br>
