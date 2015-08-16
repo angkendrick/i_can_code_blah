@@ -5,4 +5,6 @@ class Tutorial < ActiveRecord::Base
 
   accepts_nested_attributes_for :tutorial_subjects, reject_if: proc { |attributes| attributes['subject_id'].blank? }
 
+  mount_uploader :tutorialimage, TutorialimageUploader
+
 end

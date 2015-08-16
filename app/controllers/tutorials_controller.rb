@@ -57,7 +57,7 @@ class TutorialsController < ApplicationController
   protected
 
   def secure_params
-    params.require(:tutorial).permit(:user_id, :name, :description, :url, :image, :cost, :difficulty, :format, :company)
+    params.require(:tutorial).permit(:user_id, :name, :description, :url, :tutorialimage, :cost, :difficulty, :format, :company)
 
   end
 

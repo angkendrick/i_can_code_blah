@@ -1,26 +1,31 @@
-<h1>Tutorials/index</h1>
+<h1>All Tutorials</h1>
 
 <% @tutorials.each do |tutorial| %>
-    <div><%= tutorial.name %></div></br>
-    <div><%= tutorial.description %></div></br>
-    <div><a href="<%= tutorial.url %>"><%= tutorial.url %></a></div></br>
-    <div><img src="<%= tutorial.image %>"></div></br>
-    <div><%= tutorial.cost %></div></br>
-    <div><%= tutorial.difficulty%></div></br>
-    <div><%= tutorial.format %></div></br>
-    <div><%= tutorial.company %></div></br>
-    <% if current_user %>
-        <% if liked(tutorial.id, current_user.id).nil? %>
-            <div><%= button_to 'like', likes_path(like: {tutorial_id: tutorial.id, user_id: current_user.id})%></div>
-        <% else %>
-            <div><%= button_to 'unlike', {:controller => :likes, :action => 'destroy', :id => liked(tutorial.id, current_user.id)}, :method => :delete%></div>
+    <div class="col-md-4">
+        <%= tutorial.company %></br>
+        <a href="<%= tutorial.url %>"><%= tutorial.name %></a></br>
+        <%= tutorial.description %></br>
+        <%= image_tag(tutorial.tutorialimage.url.to_s, size: "100x100") %></br>
+        Cost:
+        <% if tutorial.cost == 0.0 %>
+            Free <br>
+        <% else %>  
+           $<%= tutorial.cost %></br>
         <% end %>
-    <% else %>
-        <p>Sign in to like</p>
-    <% end %>
-    <div><%= link_to 'view', tutorial_path(tutorial) %></div>
-    <div><%= link_to 'edit', edit_tutorial_path(tutorial) %></div>
-    <div><%= link_to 'delete', tutorial_path(tutorial), method: :delete, data: {confirm: 'You sure?'} %></div>
-    <hr>
+        Difficulty: <%= tutorial.difficulty.capitalize %></br>
+        Format: <%= tutorial.format.capitalize %></br>
+        <% if current_user %>
+            <% if liked(tutorial.id, current_user.id).nil? %>
+                <%= button_to 'like', likes_path(like: {tutorial_id: tutorial.id, user_id: current_user.id})%>
+            <% else %>
+                <%= button_to 'unlike', {:controller => :likes, :action => 'destroy', :id => liked(tutorial.id, current_user.id)}, :method => :delete%>
+            <% end %>
+        <% else %>
+            <p>Sign in to like</p>
+        <% end %>
+        <%= link_to 'view', tutorial_path(tutorial) %>
+        <%= link_to 'edit', edit_tutorial_path(tutorial) %>
+        <%= link_to 'delete', tutorial_path(tutorial), method: :delete, data: {confirm: 'You sure?'} %>
+        <hr>
+    </div>
 <% end %>
-
