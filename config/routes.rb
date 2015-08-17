@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
 
+  root to: 'tutorials#index'
+
   resource :user
   resources :tutorials
   resources :subjects
   resource :session, only: [:new, :create, :destroy]
 
-  resource :search, only: [:index]
   resources :likes, only: [:index, :create, :destroy]
 
-  root to: 'tutorials#index'
+  get '/search', to: 'search#index'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
